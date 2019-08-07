@@ -76,10 +76,26 @@ CREATE TABLE `tb_usuarios` (
   `status` int(11) NOT NULL,
   `dt_cadastro` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_veiculos`
+--
+
+CREATE TABLE `tb_veiculos` (
+  `id_veiculo` int(11) NOT NULL,
+  `placa` varchar(10) NOT NULL,
+  `marca` varchar(20) NOT NULL,
+  `modelo` varchar(20) NOT NULL,
+  `ano` int(11) NOT NULL,
+  `cor` varchar(20) NOT NULL,
+  `id_apartamento` int(11) NOT NULL,
+  `dt_cadastro` date NOT NULL,
+  `id_cadastro` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
