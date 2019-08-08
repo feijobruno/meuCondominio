@@ -5,6 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="br.com.ConexaoBanco.ConexaoMySQL"%>
+
+<%
+    ConexaoMySQL.getConexaoMySQL();
+    out.print(ConexaoMySQL.status);
+%>
+
+<%
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
