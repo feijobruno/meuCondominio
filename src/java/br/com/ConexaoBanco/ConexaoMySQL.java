@@ -18,10 +18,10 @@ public class ConexaoMySQL {
             String driverName = "com.mysql.jdbc.Driver";
             Class.forName(driverName);
             String serverName = "localhost:3306";
-            String myDatabase = "meu_condominio";
+            String myDatabase = "de_meucondominio";
             String url = "jdbc:mysql://" + serverName + "/" + myDatabase;
             String username = "root";
-            String password = "m31193703";
+            String password = "";
             connection = DriverManager.getConnection(url, username, password);
             
             if (connection != null) {
