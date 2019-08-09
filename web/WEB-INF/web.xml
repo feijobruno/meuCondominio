@@ -8,9 +8,17 @@
         <servlet-name>ImprimeDados</servlet-name>
         <servlet-class>View.ImprimeDados</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginAuth</servlet-name>
+        <servlet-class>br.com.Login.LoginAuth</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ImprimeDados</servlet-name>
         <url-pattern>/ImprimeDados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginAuth</servlet-name>
+        <url-pattern>/LoginAuth</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

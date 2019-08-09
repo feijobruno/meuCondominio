@@ -5,31 +5,23 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexaoMySQL {
-
-    public static String status = "Not connected...";
+    private final String driverName = "com.mysql.jdbc.Driver";
+    private final String serverName = "localhost:3306";
+    private final String myDatabase = "db_meucondominio";
+    private final String url = "jdbc:mysql://" + serverName + "/" + myDatabase;
+    private final String username = "root";
+    private final String password = "";
 
     public ConexaoMySQL() {
-            
+        
     }
 
-    public static java.sql.Connection getConexaoMySQL() {
-        Connection connection = null;
+    public java.sql.Connection getConexaoMySQL() {
         try {
-            String driverName = "com.mysql.jdbc.Driver";
             Class.forName(driverName);
-            String serverName = "localhost:3306";
-            String myDatabase = "de_meucondominio";
-            String url = "jdbc:mysql://" + serverName + "/" + myDatabase;
-            String username = "root";
-            String password = "";
-            connection = DriverManager.getConnection(url, username, password);
-            
-            if (connection != null) {
-                status = ("STATUS -------> Success!");
-            } else {
-                status = ("STATUS -------> Failed!");
-            }
+            Connection connection = DriverManager.getConnection(url, username, password);
             return connection;
+            
         } catch (ClassNotFoundException e) {
             System.out.println("The specified driver was not found.");
             return null;
@@ -39,22 +31,17 @@ public class ConexaoMySQL {
         }
     }
     
-    public static String ConnectionStatus(){
-        return status;
-    }
-    
-    public static boolean CloseConnection(){
+    public boolean CloseConnection(){
         try {
-            ConexaoMySQL.getConexaoMySQL().close();
-            status = "Connection closed!";
+            getConexaoMySQL().close();
             return true;
         } catch (SQLException e) {
             return false;
         }
     }
     
-    public static java.sql.Connection restartConnection(){
+    public java.sql.Connection restartConnection(){
         CloseConnection();
-        return ConexaoMySQL.getConexaoMySQL();
+        return getConexaoMySQL();
     }
 }
