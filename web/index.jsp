@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <%
     ConexaoMySQL.getConexaoMySQL();
-    out.print(ConexaoMySQL.status);
 %>
 
 <html lang="pt-br">
@@ -38,7 +37,7 @@
                         <h3 class="panel-title">Meu Condomínio</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action='pages/index.jsp' name='login' method='post'>
+                        <form role="form" action='LoginAuth' name='login' method='post'>
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail ou Unidade" name="usuario" type="text autofocus>
