@@ -12,6 +12,18 @@
         <servlet-name>LoginAuth</servlet-name>
         <servlet-class>br.com.Login.LoginAuth</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListarVeiculos</servlet-name>
+        <servlet-class>br.com.Veiculos.ListarVeiculos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUsuario</servlet-name>
+        <servlet-class>br.com.Login.AddUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddVeiculos</servlet-name>
+        <servlet-class>br.com.Veiculos.AddVeiculos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ImprimeDados</servlet-name>
         <url-pattern>/ImprimeDados</url-pattern>
@@ -19,6 +31,18 @@
     <servlet-mapping>
         <servlet-name>LoginAuth</servlet-name>
         <url-pattern>/LoginAuth</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarVeiculos</servlet-name>
+        <url-pattern>/ListarVeiculos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUsuario</servlet-name>
+        <url-pattern>/AddUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddVeiculos</servlet-name>
+        <url-pattern>/AddVeiculos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

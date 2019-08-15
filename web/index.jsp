@@ -1,9 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="br.com.ConexaoBanco.ConexaoMySQL"%>
 <!DOCTYPE html>
-<%
-    ConexaoMySQL.getConexaoMySQL();
-%>
 
 <html lang="pt-br">
     <head>
@@ -48,7 +45,7 @@
                                 <div class="form-group">
                                     <p class="text-center">
                                         <a data-toggle="modal" href="#solicitarAcesso"><font class="simplonRegularPreto12"><u>Solicitar acesso</u></font></a>
-                                        |  
+                                        
                                         <a data-toggle="modal" href="#recuperarSenha"><font class="simplonRegularPreto12"><u>Recuperar Senha</u></font></a>
                                     </p>
                                 </div>

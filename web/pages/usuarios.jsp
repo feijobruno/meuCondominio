@@ -1,9 +1,5 @@
-<%-- 
-    Document   : index
-    Created on : 06/08/2019, 09:21:09
-    Author     : BrunoFeijo
---%>
-
+<%@page import="br.com.Login.Usuario"%>
+<%@page import="br.com.Login.ListarUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,6 +71,24 @@
                                             <th>Perfil</th>
                                             <th>Status</th>
                                         </tr>
+                                        
+                                        <%
+                                            ListarUsuario database = new ListarUsuario();
+                                            database.getConexaoMySQL();
+                                            for (Usuario usuario : database.getListUsuario()) {
+                                        %>
+                                        <tr>
+                                            <th><%=usuario.getId_usuario()%></th>
+                                            <th><%=usuario.getNome()%></th>
+                                            <th><%=usuario.getEmail()%></th>
+                                            <th><%=usuario.getId_unidade()%></th>
+                                            <th><%=usuario.getPerfil()%></th>
+                                            <th><%=usuario.getStatus()%></th>
+                                        </tr>
+                                        <%
+                                            }
+                                        %>
+                                        
                                     </thead>
                                     <tbody>
                                         <tr>

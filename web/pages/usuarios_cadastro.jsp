@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 06/08/2019, 09:21:09
-    Author     : BrunoFeijo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,33 +48,33 @@
                     <div class="panel-heading"><i class="fa fa-user"></i> Cadastro de Usuários </div>
                     <div class="panel-body">
                         <div class="row">
-                            <form class="form" action="" name="formulario" method="POST" enctype="multipart/form-data" id="formulario"> 
+                            <form class="form" action="../AddUsuario" name="formulario" method='post' id="formulario"> 
                                 <div class="col-xs-12 col-lg-12">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="form-group col-xs-3 col-md-3 col-lg-3">
                                                 <label for="nome">Nome</label>
-                                                <input name="nome" id="nome" class="form-control" placeholder="Nome" value="">
+                                                <input name="nome" id="nome" class="form-control" placeholder="Nome">
                                             </div>   
                                             <div class="form-group col-xs-3 col-md-3 col-lg-3">
                                                 <label for="email">E-mail</label>
-                                                <input name="email" id="email" class="form-control" placeholder="E-mail" value="">
+                                                <input name="email" id="email" class="form-control" placeholder="E-mail" value="" type="email">
                                             </div>   
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
                                                 <label for="unidade">Unidade</label>
-                                                <input name="unidade" id="unidade" class="form-control" placeholder="Unidade" value="">
+                                                <input name="unidade" id="unidade" class="form-control" placeholder="Unidade" value="" type="number">
                                             </div>
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
                                                 <label for="senha">Senha</label>
-                                                <input name="senha" id="senha" class="form-control" placeholder="Senha" value="">
+                                                <input name="senha" id="senha" class="form-control" placeholder="Senha" value="" type="password">
                                             </div>
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
                                                 <label for="perfil">Perfil</label>
-                                                <input name="perfil" id="cor" class="form-control" placeholder="perfil" value="">
+                                                <input name="perfil" id="perfil" class="form-control" placeholder="Perfil" value="">
                                             </div>
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
                                                 <label for="status">Status</label>
-                                                <input name="status" id="status" class="form-control" placeholder="status" value="">
+                                                <input name="status" id="status" class="form-control" placeholder="Status" value="" type="number">
                                             </div>
                                         </div>
                                         <!-- FIM LINHA -->

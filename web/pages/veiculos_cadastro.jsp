@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 06/08/2019, 09:21:09
-    Author     : BrunoFeijo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +48,7 @@
                     <div class="panel-heading"><i class="fa fa-car"></i> Cadastro de Veículos </div>
                     <div class="panel-body">
                         <div class="row">
-                            <form class="form" action="" name="formulario" method="POST" enctype="multipart/form-data" id="formulario"> 
+                            <form class="form" action="../AddVeiculos" name="formulario" method="POST" id="formulario"> 
                                 <div class="col-xs-12 col-lg-12">
                                     <div class="form-group">
                                         <div class="row">
@@ -97,15 +91,15 @@
                                             </div>
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
                                                 <label for="ano">Ano</label>
-                                                <input name="ano" id="ano" class="form-control" placeholder="Ano" value="">
+                                                <input name="ano" id="ano" class="form-control" placeholder="Ano" value="" type="number">
                                             </div>
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
                                                 <label for="cor">Cor</label>
                                                 <input name="cor" id="cor" class="form-control" placeholder="Cor" value="">
                                             </div>
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="cor">Unidade</label>
-                                                <input name="unidade" id="unidade" class="form-control" placeholder="Unidade" value="">
+                                                <label for="unidade">Unidade</label>
+                                                <input name="unidade" id="unidade" class="form-control" placeholder="Unidade" value="" type="number">
                                             </div>
                                         </div>
                                         <!-- FIM LINHA -->
