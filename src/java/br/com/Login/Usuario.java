@@ -19,6 +19,16 @@ public class Usuario {
     private String senha;
     private String perfil;
 
+    public Usuario(int id_usuario, int id_unidade, int status, String nome, String email, String senha, String perfil) {
+        this.id_usuario = id_usuario;
+        this.id_unidade = id_unidade;
+        this.status = status;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.perfil = perfil;
+    }
+
     public int getId_usuario() {
         return id_usuario;
     }

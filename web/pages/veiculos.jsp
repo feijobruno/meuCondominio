@@ -4,6 +4,9 @@
     Author     : BrunoFeijo
 --%>
 
+<%@page import="br.com.Veiculos.ListarVeiculos"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.com.Veiculos.Veiculos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,6 +79,25 @@
                                             <th>Cor</th>
                                             <th>Apt.</th>
                                         </tr>
+                                        
+                                        <%
+                                            ListarVeiculos database = new ListarVeiculos();
+                                            database.getConexaoMySQL();
+                                            for (Veiculos veiculos : database.getListVeiculos()) {
+                                        %>
+                                        <tr>
+                                            <th><%=veiculos.getId_veiculo()%></th>
+                                            <th><%=veiculos.getPlaca()%></th>
+                                            <th><%=veiculos.getMarca()%></th>
+                                            <th><%=veiculos.getModelo()%></th>
+                                            <th><%=veiculos.getAno()%></th>
+                                            <th><%=veiculos.getCor()%></th>
+                                            <th><%=veiculos.getId_apartamento()%></th>
+                                        </tr>
+                                        <%
+                                            }
+                                        %>
+                                    
                                     </thead>
                                     <tbody>
                                         <tr>
