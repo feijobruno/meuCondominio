@@ -39,10 +39,10 @@
                             <a href="usuarios.jsp"><i class="fa fa-user-plus fa-fw"></i> Usuários</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user-plus fa-fw"></i> Funcionários</a>
+                            <a href="funcionarios.jsp"><i class="fa fa-user-plus fa-fw"></i> Funcionários</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-building fa-fw"></i> Unidades</a>
+                            <a href="unidades.jsp"><i class="fa fa-building fa-fw"></i> Unidades</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Moradores</a>

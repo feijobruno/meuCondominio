@@ -1,6 +1,5 @@
-<%@page import="br.com.Veiculos.ListarVeiculos"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="br.com.Veiculos.Veiculos"%>
+<%@page import="br.com.Funcionarios.ListarFuncionario"%>
+<%@page import="br.com.Funcionarios.Funcionario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +49,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-xs-4">
                         <div class="panel panel-heading">
-                            <a href="veiculos_cadastro.jsp"><button type="submit" class="btn btn-default"> <i class="fa fa-plus"></i> Novo Veículo</button></a>
+                            <a href="funcionarios_cadastro.jsp"><button type="submit" class="btn btn-default"> <i class="fa fa-plus"></i> Novo Funcionário</button></a>
                         </div>
                     </div>
                 </div>    
@@ -58,50 +57,47 @@
                     <div class="col-lg-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-car"></i> Veículos Cadastrados                      
+                                <i class="fa fa-user"></i> Funcionários Cadastrados                      
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-bordered table-hover table-condensed" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Placa</th>
-                                            <th>Marca</th>
-                                            <th>Modelo</th>
-                                            <th>Ano</th>
-                                            <th>Cor</th>
-                                            <th>Apt.</th>
+                                            <th>Id</th>
+                                            <th>Nome</th>
+                                            <th>Função</th>
+                                            <th>Status</th>
+                                            <th>Data de Admição</th>
+                                            <th>Data de Desligamento</th>
                                         </tr>
                                         
                                         <%
-                                            ListarVeiculos database = new ListarVeiculos();
+                                            ListarFuncionario database = new ListarFuncionario();
                                             database.getConexaoMySQL();
-                                            for (Veiculos veiculos : database.getListVeiculos()) {
+                                            for (Funcionario funcionario : database.listFuncionario()) {
                                         %>
                                         <tr>
-                                            <th><%=veiculos.getId_veiculo()%></th>
-                                            <th><%=veiculos.getPlaca()%></th>
-                                            <th><%=veiculos.getMarca()%></th>
-                                            <th><%=veiculos.getModelo()%></th>
-                                            <th><%=veiculos.getAno()%></th>
-                                            <th><%=veiculos.getCor()%></th>
-                                            <th><%=veiculos.getId_apartamento()%></th>
+                                            <th><%=funcionario.getId()%></th>
+                                            <th><%=funcionario.getNome()%></th>
+                                            <th><%=funcionario.getFuncao()%></th>
+                                            <th><%=funcionario.getStatus()%></th>
+                                            <th><%=funcionario.getDtAdmicao()%></th>
+                                            <th><%=funcionario.getDtDesligamento()%></th>
                                         </tr>
                                         <%
                                             }
                                         %>
-                                    
+                                        
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>    
+                                            <td class="odd gradeX" align="center"><a href="funcionarios_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="funcionarios_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="funcionarios_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="funcionarios_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="funcionarios_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="funcionarios_cadastro.jsp"></a></td>    
                                         </tr>
                                     </tbody>
                                 </table>
@@ -122,7 +118,7 @@
             <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
             <!-- Custom Theme JavaScript -->
-            <script src="../dist/js/sb-admin-2.js"></script>
+            <script src="../vendor/sb-admin/js/sb-admin-2.js"></script>
 
     </body>
 

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.Login;
 
 import java.io.IOException;
@@ -18,11 +13,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author rafa_
- */
 public class LoginAuth extends HttpServlet {
      /**
      * Handles the HTTP <code>POST</code> method.
@@ -47,8 +39,9 @@ public class LoginAuth extends HttpServlet {
                 ps.setString(2, senha);
 
                 ResultSet rs = ps.executeQuery();
-
                 if (rs.next()){
+                    HttpSession sessao = request.getSession();
+                    sessao.setAttribute("chave", usuario);
                     response.sendRedirect("pages/index.jsp");
                 } else {
                     response.sendRedirect("index.jsp");

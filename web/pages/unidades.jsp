@@ -1,6 +1,5 @@
-<%@page import="br.com.Veiculos.ListarVeiculos"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="br.com.Veiculos.Veiculos"%>
+<%@page import="br.com.Unidades.ListarUnidades"%>
+<%@page import="br.com.Unidades.Unidades"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +49,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-xs-4">
                         <div class="panel panel-heading">
-                            <a href="veiculos_cadastro.jsp"><button type="submit" class="btn btn-default"> <i class="fa fa-plus"></i> Novo Veículo</button></a>
+                            <a href="unidades_cadastro.jsp"><button type="submit" class="btn btn-default"> <i class="fa fa-plus"></i> Nova Unidade</button></a>
                         </div>
                     </div>
                 </div>    
@@ -58,50 +57,50 @@
                     <div class="col-lg-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-car"></i> Veículos Cadastrados                      
+                                <i class="fa fa-user"></i> Unidades Cadastradas                      
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-bordered table-hover table-condensed" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Placa</th>
-                                            <th>Marca</th>
-                                            <th>Modelo</th>
-                                            <th>Ano</th>
-                                            <th>Cor</th>
-                                            <th>Apt.</th>
+                                            <th>Id</th>
+                                            <th>Status</th>
+                                            <th>Proprietário</th>
+                                            <th>Cpf</th>
+                                            <th>Telefone</th>
+                                            <th>Id do Morador</th>
+                                            <th>Id da Vaga</th>
                                         </tr>
                                         
                                         <%
-                                            ListarVeiculos database = new ListarVeiculos();
+                                            ListarUnidades database = new ListarUnidades();
                                             database.getConexaoMySQL();
-                                            for (Veiculos veiculos : database.getListVeiculos()) {
+                                            for (Unidades unidades : database.listUnidades()) {
                                         %>
                                         <tr>
-                                            <th><%=veiculos.getId_veiculo()%></th>
-                                            <th><%=veiculos.getPlaca()%></th>
-                                            <th><%=veiculos.getMarca()%></th>
-                                            <th><%=veiculos.getModelo()%></th>
-                                            <th><%=veiculos.getAno()%></th>
-                                            <th><%=veiculos.getCor()%></th>
-                                            <th><%=veiculos.getId_apartamento()%></th>
+                                            <th><%=unidades.getId()%></th>
+                                            <th><%=unidades.getStatus()%></th>
+                                            <th><%=unidades.getProprietario()%></th>
+                                            <th><%=unidades.getCpf()%></th>
+                                            <th><%=unidades.getTelefone()%></th>
+                                            <th><%=unidades.getId_morador()%></th>
+                                            <th><%=unidades.getId_vaga()%></th>
                                         </tr>
                                         <%
                                             }
                                         %>
-                                    
+                                        
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>    
+                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>    
+                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>  
                                         </tr>
                                     </tbody>
                                 </table>
@@ -122,7 +121,7 @@
             <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
             <!-- Custom Theme JavaScript -->
-            <script src="../dist/js/sb-admin-2.js"></script>
+            <script src="../vendor/sb-admin/js/sb-admin-2.js"></script>
 
     </body>
 
