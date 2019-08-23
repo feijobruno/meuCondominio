@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Ago-2019 às 14:08
+-- Generation Time: 23-Ago-2019 às 13:15
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.3.3
 
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_meucondominio`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_boletos`
+--
+
+CREATE TABLE `tb_boletos` (
+  `id` int(11) NOT NULL,
+  `id_unidade` int(11) NOT NULL,
+  `id_mes` int(11) NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
+  `status` int(11) NOT NULL,
+  `boleto` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -51,19 +66,25 @@ INSERT INTO `tb_funcionarios` (`id`, `nome`, `funcao`, `status`, `dt_admicao`, `
 --
 
 CREATE TABLE `tb_moradores` (
-  `id_morador` int(11) NOT NULL,
+  `id_morador` int(11) DEFAULT NULL,
   `nome` varchar(40) NOT NULL,
-  `cpf` int(11) NOT NULL,
+  `cpf` varchar(255) NOT NULL,
   `rg` varchar(40) NOT NULL,
   `dt_nascimento` date NOT NULL,
   `email` varchar(40) NOT NULL,
-  `telefone` int(11) NOT NULL,
+  `telefone` varchar(255) NOT NULL,
   `id_apartamento` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `id_cadastro` int(11) NOT NULL,
   `dt_cadastro` date NOT NULL,
   `tipo_morador` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tb_moradores`
+--
+
+INSERT INTO `tb_moradores` (`id_morador`, `nome`, `cpf`, `rg`, `dt_nascimento`, `email`, `telefone`, `id_apartamento`, `status`, `dt_cadastro`, `tipo_morador`) VALUES
+(NULL, 'Marlon Sodre', '168.889.227-31', '276272416', '2019-08-01', 'mmarlonsodre@gmail.com', '21964987793', 1, 1, '2019-08-23', '1');
 
 -- --------------------------------------------------------
 
@@ -148,6 +169,12 @@ INSERT INTO `tb_veiculos` (`id_veiculo`, `placa`, `marca`, `modelo`, `ano`, `cor
 --
 
 --
+-- Indexes for table `tb_boletos`
+--
+ALTER TABLE `tb_boletos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tb_funcionarios`
 --
 ALTER TABLE `tb_funcionarios`
@@ -156,6 +183,12 @@ ALTER TABLE `tb_funcionarios`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tb_boletos`
+--
+ALTER TABLE `tb_boletos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_funcionarios`
