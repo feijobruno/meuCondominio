@@ -1,5 +1,5 @@
-<%@page import="br.com.Unidades.ListarUnidades"%>
-<%@page import="br.com.Unidades.Unidades"%>
+<%@page import="br.com.Financeiro.Financeiro"%>
+<%@page import="br.com.Financeiro.ListarBoletos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,19 +45,12 @@
 
             <div id="page-wrapper">
                 <!-- /#page-wrapper -->
-                <br>
-                <div class="row">
-                    <div class="col-lg-4 col-xs-4">
-                        <div class="panel panel-heading">
-                            <a href="unidades_cadastro.jsp"><button type="submit" class="btn btn-default"> <i class="fa fa-plus"></i> Nova Unidade</button></a>
-                        </div>
-                    </div>
-                </div>    
+                <br>  
                 <div class="row">
                     <div class="col-lg-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-user"></i> Unidades Cadastradas                      
+                                <i class="fa fa-user"></i> Boletos Gerados                      
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -65,44 +58,29 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
+                                            <th>Unidade</th>
+                                            <th>Mês</th>
+                                            <th>Valor</th>
                                             <th>Status</th>
-                                            <th>Proprietário</th>
-                                            <th>Cpf</th>
-                                            <th>Telefone</th>
-                                            <th>Id do Morador</th>
-                                            <th>Id da Vaga</th>
+                                            <th>Boleto</th>
                                         </tr>
                                         
                                         <%
-                                            ListarUnidades database = new ListarUnidades();
+                                            ListarBoletos database = new ListarBoletos();
                                             database.getConexaoMySQL();
-                                            for (Unidades unidades : database.listUnidades()) {
+                                            for (Financeiro boletos : database.listBoletos()) {
                                         %>
                                         <tr>
-                                            <th><%=unidades.getId()%></th>
-                                            <th><%=unidades.getStatus()%></th>
-                                            <th><%=unidades.getProprietario()%></th>
-                                            <th><%=unidades.getCpf()%></th>
-                                            <th><%=unidades.getTelefone()%></th>
-                                            <th><%=unidades.getId_morador()%></th>
-                                            <th><%=unidades.getId_vaga()%></th>
+                                            <th><%=boletos.getId()%></th>
+                                            <th><%=boletos.getIdUnidade()%></th>
+                                            <th><%=boletos.getIdMes()%></th>
+                                            <th><%=boletos.getValor()%></th>
+                                            <th><%=boletos.getStatus()%></th>
                                         </tr>
                                         <%
                                             }
                                         %>
-                                        
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>    
-                                            <td class="odd gradeX" align="center"><a href="unidades_cadastro.jsp"></a></td>  
-                                        </tr>
-                                    </tbody>
                                 </table>
                             </div>     <!-- /.table-responsive -->
                         </div> 

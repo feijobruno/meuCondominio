@@ -48,7 +48,7 @@
                             <a href="moradores.jsp"><i class="fa fa-users fa-fw"></i> Moradores</a>
                         </li>
                         <li>
-                            <a href="finaceiro.jsp"><i class="fa fa-money fa-fw"></i> Financeiro</a>
+                            <a href="financeiro.jsp"><i class="fa fa-money fa-fw"></i> Financeiro</a>
                         </li>
                         <li>
                             <a href="veiculos.jsp"><i class="fa fa-car fa-fw"></i> Veículos</a>
