@@ -69,7 +69,7 @@ public class ListarUsuario {
         if (rs != null){
             while (rs.next()){
                 try {
-                    listUsuario.add(new Usuario(rs.getInt("id_usuario"), rs.getInt("id_unidade"), rs.getInt("status"),
+                    listUsuario.add(new Usuario(rs.getInt("id_usuario"), rs.getInt("id_unidade"), rs.getString("status"),
                             rs.getString("nome"), rs.getString("email"), rs.getString("senha"), rs.getString("perfil")));
                 } catch (Exception e){
                     e.printStackTrace();

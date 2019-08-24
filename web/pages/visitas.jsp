@@ -1,5 +1,5 @@
-<%@page import="br.com.Financeiro.Financeiro"%>
-<%@page import="br.com.Financeiro.ListarBoletos"%>
+<%@page import="br.com.Visitas.Visitas"%>
+<%@page import="br.com.Visitas.ListarVisitas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,12 +45,19 @@
 
             <div id="page-wrapper">
                 <!-- /#page-wrapper -->
-                <br>  
+                <br>
+                <div class="row">
+                    <div class="col-lg-4 col-xs-4">
+                        <div class="panel panel-heading">
+                            <a href="visitas_cadastro.jsp"><button type="submit" class="btn btn-default"> <i class="fa fa-plus"></i> Novo Visitante</button></a>
+                        </div>
+                    </div>
+                </div>    
                 <div class="row">
                     <div class="col-lg-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-money"></i> Boletos Gerados                      
+                                <i class="fa fa-sign-in"></i> Visitantes Cadastrados                      
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -58,29 +65,44 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Unidade</th>
-                                            <th>Mês</th>
-                                            <th>Valor</th>
-                                            <th>Status</th>
-                                            <th>Boleto</th>
+                                            <th>Tipo Visita</th>
+                                            <th>Nome</th>
+                                            <th>RG</th>
+                                            <th>Destino</th>
+                                            <th>Data de Cadastro</th>
+                                            <th>Id do Mês</th>
                                         </tr>
                                         
                                         <%
-                                            ListarBoletos database = new ListarBoletos();
+                                            ListarVisitas database = new ListarVisitas();
                                             database.getConexaoMySQL();
-                                            for (Financeiro boletos : database.listBoletos()) {
+                                            for (Visitas visitas : database.listVisitas()) {
                                         %>
                                         <tr>
-                                            <th><%=boletos.getId()%></th>
-                                            <th><%=boletos.getIdUnidade()%></th>
-                                            <th><%=boletos.getIdMes()%></th>
-                                            <th><%=boletos.getValor()%></th>
-                                            <th><%=boletos.getStatus()%></th>
+                                            <th><%=visitas.getId()%></th>
+                                            <th><%=visitas.getTipoVisita()%></th>
+                                            <th><%=visitas.getNome()%></th>
+                                            <th><%=visitas.getRg()%></th>
+                                            <th><%=visitas.getDestino()%></th>
+                                            <th><%=visitas.getDtCadastro()%></th>
+                                            <th><%=visitas.getId_mes()%></th>
                                         </tr>
                                         <%
                                             }
                                         %>
+                                        
                                     </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="odd gradeX" align="center"><a href="visitas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="visitas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="visitas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="visitas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="visitas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="visitas_cadastro.jsp"></a></td>    
+                                            <td class="odd gradeX" align="center"><a href="visitas_cadastro.jsp"></a></td>  
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>     <!-- /.table-responsive -->
                         </div> 

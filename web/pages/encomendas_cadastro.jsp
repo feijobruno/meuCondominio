@@ -1,3 +1,7 @@
+<%@page import="br.com.Mes.Mes"%>
+<%@page import="br.com.Mes.ListarMes"%>
+<%@page import="br.com.Funcionarios.Funcionario"%>
+<%@page import="br.com.Funcionarios.ListarFuncionario"%>
 <%@page import="br.com.Unidades.Unidades"%>
 <%@page import="br.com.Unidades.ListarUnidades"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -47,60 +51,59 @@
                 <!-- /#page-wrapper -->
                 <br>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><i class="fa fa-users"></i> Cadastro de Moradores </div>
+                    <div class="panel-heading"><i class="fa fa-truck"></i> Cadastro de Encomendas </div>
                     <div class="panel-body">
                         <div class="row">
-                            <form class="form" action="../AddMoradores" name="formulario" method='post' id="formulario"> 
+                            <form class="form" action="../AddEncomendas" name="formulario" method='post' id="formulario"> 
                                 <div class="col-xs-12 col-lg-12">
-                                    <div class="form-group">
+                                    <div class="form-group">    
                                         <div class="row">
-                                            <div class="form-group col-xs-3 col-md-3 col-lg-3">
-                                                <label for="nome">Nome</label>
-                                                <input name="nome" id="proprietario" class="form-control" placeholder="Nome">
-                                            </div>   
-                                            <div class="form-group col-xs-3 col-md-3 col-lg-3">
-                                                <label for="cpf">Cpf</label>
-                                                <input name="cpf" id="cpf" class="form-control" placeholder="Cpf">
-                                            </div>
-                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="rg">Rg</label>
-                                                <input name="rg" id="telefone" class="form-control" placeholder="Rg">
-                                            </div>
-                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="email">E-mail</label>
-                                                <input name="email" id="telefone" class="form-control" placeholder="E-mail" type="email">
-                                            </div>
-                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="telefone">Telefone</label>
-                                                <input name="telefone" id="telefone" class="form-control" placeholder="Telefone" type="tel">
-                                            </div>
                                             <div class="form-group col-xs-2 col-lg-2">
-                                                <label class="control-label" for="status">Status</label>
-                                                <select name="status" id="status" class="form-control">
-                                                    <option value="1">Lotada</option>
-                                                    <option value="2">Vazia</option>
+                                                <label class="control-label" for="recebeu">Recebeu</label>
+                                                <select name="recebeu" id="recebeu" class="form-control">
+                                                    <%
+                                                        ListarFuncionario database = new ListarFuncionario();
+                                                        database.getConexaoMySQL();
+                                                        for (Funcionario funcionario : database.listFuncionario()) {
+                                                    %>
+                                                    <option value="<%=funcionario.getId()%>"><%=funcionario.getNome()%></option>
+                                                    <%}%>
+                                                </select>
                                                 </select>
                                             </div>
                                             <div class="form-group col-xs-2 col-lg-2">
-                                                <label class="control-label" for="tipo_morador">Tipo de Morador</label>
-                                                <select name="tipo_morador" id="tipo_morador" class="form-control">
-                                                    <option value="1">Lotada</option>
-                                                    <option value="2">Vazia</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="dt_nascimento">Data de Nascimento</label>
-                                                <input name="dt_nascimento" id="id_morador" class="form-control" placeholder="Data de Nascimento" type="date">
-                                            </div>
-                                            <div class="form-group col-xs-2 col-lg-2">
-                                                <label class="control-label" for="id_apartamento">Unidade</label>
-                                                <select name="id_apartamento" id="id_apartamento" class="form-control">
+                                                <label class="control-label" for="destinatario">Destinatário</label>
+                                                <select name="destinatario" id="destinatario" class="form-control">
                                                     <%
                                                         ListarUnidades database1 = new ListarUnidades();
                                                         database1.getConexaoMySQL();
                                                         for (Unidades unidades : database1.listUnidades()) {
                                                     %>
                                                     <option value="<%=unidades.getId()%>"><%=unidades.getCasa()%></option>
+                                                    <%}%>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
+                                                <label for="remetente">Remetente</label>
+                                                <input name="remetente" id="remetente" class="form-control" placeholder="Remetente">
+                                            </div>
+                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
+                                                <label for="cod_rastreio">Cod. Rastreio</label>
+                                                <input name="cod_rastreio" id="cod_rastreio" class="form-control" placeholder="Cod. Rastreio">
+                                            </div>
+                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
+                                                <label for="dt_chegada">Data Chegada</label>
+                                                <input name="dt_chegada" id="dt_chegada" class="form-control" placeholder="Data Chegada" type="date">
+                                            </div>
+                                            <div class="form-group col-xs-2 col-lg-2">
+                                                <label class="control-label" for="mes">Mês</label>
+                                                <select name="mes" id="mes" class="form-control">
+                                                    <%
+                                                        ListarMes database2 = new ListarMes();
+                                                        database2.getConexaoMySQL();
+                                                        for (Mes mes : database2.listMes()) {
+                                                    %>
+                                                    <option value="<%=mes.getId()%>"><%=mes.getMes()%></option>
                                                     <%}%>
                                                 </select>
                                             </div>

@@ -45,7 +45,7 @@
                 <!-- /#page-wrapper -->
                 <br>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><i class="fa fa-user"></i> Cadastro de Usuários </div>
+                    <div class="panel-heading"><i class="fa fa-building"></i> Cadastro de Unidades </div>
                     <div class="panel-body">
                         <div class="row">
                             <form class="form" action="../AddUnidades" name="formulario" method='post' id="formulario"> 

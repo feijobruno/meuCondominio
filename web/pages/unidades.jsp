@@ -57,7 +57,7 @@
                     <div class="col-lg-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-user"></i> Unidades Cadastradas                      
+                                <i class="fa fa-building"></i> Unidades Cadastradas                      
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">

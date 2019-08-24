@@ -57,7 +57,7 @@
                     <div class="col-lg-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-user"></i> Moradores Cadastrados                      
+                                <i class="fa fa-users"></i> Moradores Cadastrados                      
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">

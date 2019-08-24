@@ -66,10 +66,10 @@
                     <a href="#"><i class="fa fa-shield fa-fw"></i> Portaria<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#"><i class="fa fa-sign-in fa-fw"></i> Visitas</a>
+                            <a href="visitas.jsp"><i class="fa fa-sign-in fa-fw"></i> Visitas</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-truck fa-fw"></i> Encomendas</a>
+                            <a href="encomendas.jsp"><i class="fa fa-truck fa-fw"></i> Encomendas</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

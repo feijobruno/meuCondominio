@@ -1,5 +1,5 @@
-<%@page import="br.com.Financeiro.Financeiro"%>
-<%@page import="br.com.Financeiro.ListarBoletos"%>
+<%@page import="br.com.Encomendas.Encomendas"%>
+<%@page import="br.com.Encomendas.ListarEncomendas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,12 +45,19 @@
 
             <div id="page-wrapper">
                 <!-- /#page-wrapper -->
-                <br>  
+                <br>
+                <div class="row">
+                    <div class="col-lg-4 col-xs-4">
+                        <div class="panel panel-heading">
+                            <a href="encomendas_cadastro.jsp"><button type="submit" class="btn btn-default"> <i class="fa fa-plus"></i> Nova Encomenda</button></a>
+                        </div>
+                    </div>
+                </div>    
                 <div class="row">
                     <div class="col-lg-12 col-xs-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <i class="fa fa-money"></i> Boletos Gerados                      
+                                <i class="fa fa-truck"></i> Encomendas Cadastradas                      
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
@@ -58,29 +65,50 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Unidade</th>
-                                            <th>Mês</th>
-                                            <th>Valor</th>
-                                            <th>Status</th>
-                                            <th>Boleto</th>
+                                            <th>Recebeu</th>
+                                            <th>Destinatário</th>
+                                            <th>Remetente</th>
+                                            <th>Cod. Rastreio</th>
+                                            <th>Data Chegada</th>
+                                            <th>Id Mês</th>
+                                            <th>Data Retirada</th>
+                                            <th>Data Cadastro</th>
                                         </tr>
                                         
                                         <%
-                                            ListarBoletos database = new ListarBoletos();
+                                            ListarEncomendas database = new ListarEncomendas();
                                             database.getConexaoMySQL();
-                                            for (Financeiro boletos : database.listBoletos()) {
+                                            for (Encomendas encomendas : database.listEncomendas()) {
                                         %>
                                         <tr>
-                                            <th><%=boletos.getId()%></th>
-                                            <th><%=boletos.getIdUnidade()%></th>
-                                            <th><%=boletos.getIdMes()%></th>
-                                            <th><%=boletos.getValor()%></th>
-                                            <th><%=boletos.getStatus()%></th>
+                                            <th><%=encomendas.getId()%></th>
+                                            <th><%=encomendas.getRecebeu()%></th>
+                                            <th><%=encomendas.getDestinatario()%></th>
+                                            <th><%=encomendas.getRemetente()%></th>
+                                            <th><%=encomendas.getCod_rastreio()%></th>
+                                            <th><%=encomendas.getDt_chegada()%></th>
+                                            <th><%=encomendas.getId_mes()%></th>
+                                            <th><%=encomendas.getDt_retirada()%></th>
+                                            <th><%=encomendas.getDt_cadastro()%></th>
                                         </tr>
                                         <%
                                             }
                                         %>
+                                        
                                     </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>    
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>  
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>    
+                                            <td class="odd gradeX" align="center"><a href="encomendas_cadastro.jsp"></a></td>  
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>     <!-- /.table-responsive -->
                         </div> 

@@ -1,3 +1,5 @@
+<%@page import="br.com.Unidades.Unidades"%>
+<%@page import="br.com.Unidades.ListarUnidades"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,9 +99,17 @@
                                                 <label for="cor">Cor</label>
                                                 <input name="cor" id="cor" class="form-control" placeholder="Cor" value="">
                                             </div>
-                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="unidade">Unidade</label>
-                                                <input name="unidade" id="unidade" class="form-control" placeholder="Unidade" value="" type="number">
+                                            <div class="form-group col-xs-2 col-lg-2">
+                                                <label class="control-label" for="unidade">Unidade</label>
+                                                <select name="unidade" id="id_apartamento" class="form-control">
+                                                    <%
+                                                        ListarUnidades database1 = new ListarUnidades();
+                                                        database1.getConexaoMySQL();
+                                                        for (Unidades unidades : database1.listUnidades()) {
+                                                    %>
+                                                    <option value="<%=unidades.getId()%>"><%=unidades.getCasa()%></option>
+                                                    <%}%>
+                                                </select>
                                             </div>
                                         </div>
                                         <!-- FIM LINHA -->

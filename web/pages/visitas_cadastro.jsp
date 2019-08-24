@@ -45,31 +45,35 @@
                 <!-- /#page-wrapper -->
                 <br>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><i class="fa fa-user"></i> Cadastro de Funcionário </div>
+                    <div class="panel-heading"><i class="fa fa-sign-in"></i> Cadastro de Visitas </div>
                     <div class="panel-body">
                         <div class="row">
-                            <form class="form" action="../AddFuncionario" name="formulario" method='post' id="formulario"> 
+                            <form class="form" action="../AddVisitas" name="formulario" method='post' id="formulario"> 
                                 <div class="col-xs-12 col-lg-12">
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="form-group col-xs-3 col-md-3 col-lg-3">
                                                 <label for="nome">Nome</label>
-                                                <input name="nome" id="nome" class="form-control" placeholder="Nome">
+                                                <input name="nome" id="proprietario" class="form-control" placeholder="Nome">
                                             </div>   
                                             <div class="form-group col-xs-3 col-md-3 col-lg-3">
-                                                <label for="funcao">Função</label>
-                                                <input name="funcao" id="funcao" class="form-control" placeholder="Função">
+                                                <label for="rg">RG</label>
+                                                <input name="rg" id="rg" class="form-control" placeholder="RG"  >
                                             </div>
                                             <div class="form-group col-xs-2 col-lg-2">
-                                                <label class="control-label" for="marca">Status</label>
-                                                <select name="status" id="status" class="form-control">
-                                                    <option value="1">Trabalhando</option>
-                                                    <option value="2">Demitido</option>
+                                                <label class="control-label" for="tipo">Tipo Visita</label>
+                                                <select name="tipo" id="tipo" class="form-control">
+                                                    <option value="1">Família</option>
+                                                    <option value="2">Encomenda</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="dt_admicao">Data de Admição</label>
-                                                <input name="dt_admicao" id="dt_admicao" class="form-control" placeholder="Data de Admição" value="" type="date">
+                                                <label for="unidade">Unidade</label>
+                                                <input name="unidade" id="unidade" class="form-control" placeholder="Unidade">
+                                            </div>
+                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
+                                                <label for="id_mes">Id Mês</label>
+                                                <input name="id_mes" id="id_mes" class="form-control" placeholder="Id Mês">
                                             </div>
                                         </div>
                                         <!-- FIM LINHA -->

@@ -1,4 +1,5 @@
-package br.com.Unidades;
+package br.com.Mes;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -6,26 +7,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ListarUnidades {
-   public String status;
-   private ArrayList<Unidades> listUnidades;
+public class ListarMes {
+     public String status;
+   private ArrayList<Mes> listMes;
 
-    public ListarUnidades() {
+    public ListarMes() {
         this.status = "offline";
-        this.listUnidades = new ArrayList<Unidades>();
+        this.listMes = new ArrayList<Mes>();
     }
 
-    public ListarUnidades(ArrayList<Unidades> listUsuario) {
+    public ListarMes(ArrayList<Mes> listMes) {
         this.status = "offline";
-        this.listUnidades = listUnidades;
+        this.listMes = listMes;
     }
 
-    public ArrayList<Unidades> listUnidades() {
-        return listUnidades;
+    public ArrayList<Mes> listMes() {
+        return listMes;
     }
 
-    public void setListUsuario(ArrayList<Unidades> listUnidades) {
-        this.listUnidades = listUnidades;
+    public void setListUsuario(ArrayList<Mes> listMes) {
+        this.listMes = listMes;
     }
     
     public String getStatus() {
@@ -49,7 +50,7 @@ public class ListarUnidades {
             connection = DriverManager.getConnection(url, username, password);
             
             if (connection != null) {
-                getBanco(connection, listUnidades);
+                getBanco(connection, listMes);
             }
             return connection;
         } catch (ClassNotFoundException e) {
@@ -61,16 +62,14 @@ public class ListarUnidades {
         }
     }
     
-    private void getBanco(Connection conn, ArrayList<Unidades> listItems) throws SQLException {
-        String query  = "Select * from tb_unidades"; //Query do SQL
+    private void getBanco(Connection conn, ArrayList<Mes> listItems) throws SQLException {
+        String query  = "Select * from tb_mes"; //Query do SQL
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         if (rs != null){
             while (rs.next()){
                 try {
-                    listUnidades.add(new Unidades(rs.getInt("id_unidade"), rs.getInt("status"),
-                            rs.getString("proprietario"), rs.getString("cpf"), rs.getString("telefone"), rs.getInt("id_morador"),
-                            rs.getInt("id_vaga"), rs.getString("casa")));
+                    listMes.add(new Mes(rs.getInt("id"), rs.getString("mes")));
                 } catch (Exception e){
                     e.printStackTrace();
                 }

@@ -1,4 +1,3 @@
-
 package br.com.Unidades;
 
 public class Unidades {
@@ -9,8 +8,9 @@ public class Unidades {
     private String telefone;
     private int id_morador;
     private int id_vaga;
+    private String casa;
 
-    public Unidades(int id, int status, String proprietario, String cpf, String telefone, int id_morador, int id_vaga) {
+    public Unidades(int id, int status, String proprietario, String cpf, String telefone, int id_morador, int id_vaga, String casa) {
         this.id = id;
         this.status = status;
         this.proprietario = proprietario;
@@ -18,6 +18,7 @@ public class Unidades {
         this.telefone = telefone;
         this.id_morador = id_morador;
         this.id_vaga = id_vaga;
+        this.casa = casa;
     }
 
     public Unidades() {
@@ -77,6 +78,14 @@ public class Unidades {
 
     public void setId_vaga(int id_vaga) {
         this.id_vaga = id_vaga;
+    }
+
+    public String getCasa() {
+        return casa;
+    }
+
+    public void setCasa(String casa) {
+        this.casa = casa;
     }
 }
 

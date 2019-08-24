@@ -1,25 +1,16 @@
 
 package br.com.Login;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.lang.System;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Usuario {
     private int id_usuario;
     private int id_unidade;
-    private int status;
+    private String status;
     private String nome;
     private String email;
     private String senha;
     private String perfil;
 
-    public Usuario(int id_usuario, int id_unidade, int status, String nome, String email, String senha, String perfil) {
+    public Usuario(int id_usuario, int id_unidade, String status, String nome, String email, String senha, String perfil) {
         this.id_usuario = id_usuario;
         this.id_unidade = id_unidade;
         this.status = status;
@@ -45,11 +36,11 @@ public class Usuario {
         this.id_unidade = id_unidade;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

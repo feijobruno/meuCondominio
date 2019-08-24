@@ -1,4 +1,4 @@
-package br.com.Unidades;
+package br.com.Encomendas;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -6,26 +6,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ListarUnidades {
+public class ListarEncomendas {
    public String status;
-   private ArrayList<Unidades> listUnidades;
+   private ArrayList<Encomendas> listEncomendas;
 
-    public ListarUnidades() {
+    public ListarEncomendas() {
         this.status = "offline";
-        this.listUnidades = new ArrayList<Unidades>();
+        this.listEncomendas = new ArrayList<Encomendas>();
     }
 
-    public ListarUnidades(ArrayList<Unidades> listUsuario) {
+    public ListarEncomendas(ArrayList<Encomendas> listEncomendas) {
         this.status = "offline";
-        this.listUnidades = listUnidades;
+        this.listEncomendas = listEncomendas;
     }
 
-    public ArrayList<Unidades> listUnidades() {
-        return listUnidades;
+    public ArrayList<Encomendas> listEncomendas() {
+        return listEncomendas;
     }
 
-    public void setListUsuario(ArrayList<Unidades> listUnidades) {
-        this.listUnidades = listUnidades;
+    public void setListUsuario(ArrayList<Encomendas> listEncomendas) {
+        this.listEncomendas = listEncomendas;
     }
     
     public String getStatus() {
@@ -49,7 +49,7 @@ public class ListarUnidades {
             connection = DriverManager.getConnection(url, username, password);
             
             if (connection != null) {
-                getBanco(connection, listUnidades);
+                getBanco(connection, listEncomendas);
             }
             return connection;
         } catch (ClassNotFoundException e) {
@@ -61,16 +61,16 @@ public class ListarUnidades {
         }
     }
     
-    private void getBanco(Connection conn, ArrayList<Unidades> listItems) throws SQLException {
-        String query  = "Select * from tb_unidades"; //Query do SQL
+    private void getBanco(Connection conn, ArrayList<Encomendas> listItems) throws SQLException {
+        String query  = "Select * from tb_encomendas"; //Query do SQL
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         if (rs != null){
             while (rs.next()){
                 try {
-                    listUnidades.add(new Unidades(rs.getInt("id_unidade"), rs.getInt("status"),
-                            rs.getString("proprietario"), rs.getString("cpf"), rs.getString("telefone"), rs.getInt("id_morador"),
-                            rs.getInt("id_vaga"), rs.getString("casa")));
+                    listEncomendas.add(new Encomendas(rs.getInt("id"), rs.getString("recebeu"),
+                            rs.getString("destinatario"), rs.getString("remetente"), rs.getString("cod_rastreio"), rs.getString("dt_chegada")
+                            , rs.getInt("id_mes"), rs.getString("dt_retirada"), rs.getString("dt_cadastro")));
                 } catch (Exception e){
                     e.printStackTrace();
                 }

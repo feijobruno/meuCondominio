@@ -1,3 +1,5 @@
+<%@page import="br.com.Unidades.Unidades"%>
+<%@page import="br.com.Unidades.ListarUnidades"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,21 +62,35 @@
                                                 <label for="email">E-mail</label>
                                                 <input name="email" id="email" class="form-control" placeholder="E-mail" value="" type="email">
                                             </div>   
-                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="unidade">Unidade</label>
-                                                <input name="unidade" id="unidade" class="form-control" placeholder="Unidade" value="" type="number">
+                                            <div class="form-group col-xs-2 col-lg-2">
+                                                <label class="control-label" for="unidade">Unidade</label>
+                                                <select name="unidade" id="id_apartamento" class="form-control">
+                                                    <%
+                                                        ListarUnidades database1 = new ListarUnidades();
+                                                        database1.getConexaoMySQL();
+                                                        for (Unidades unidades : database1.listUnidades()) {
+                                                    %>
+                                                    <option value="<%=unidades.getId()%>"><%=unidades.getCasa()%></option>
+                                                    <%}%>
+                                                </select>
                                             </div>
                                             <div class="form-group col-xs-2 col-md-2 col-lg-2">
                                                 <label for="senha">Senha</label>
                                                 <input name="senha" id="senha" class="form-control" placeholder="Senha" value="" type="password">
                                             </div>
-                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="perfil">Perfil</label>
-                                                <input name="perfil" id="perfil" class="form-control" placeholder="Perfil" value="">
+                                            <div class="form-group col-xs-2 col-lg-2">
+                                                <label class="control-label" for="perfil">Perfil</label>
+                                                <select name="perfil" id="perfil" class="form-control">
+                                                    <option value="Morador">Morador</option>
+                                                    <option value="Funcionário">Funcionário</option>
+                                                </select>
                                             </div>
-                                            <div class="form-group col-xs-2 col-md-2 col-lg-2">
-                                                <label for="status">Status</label>
-                                                <input name="status" id="status" class="form-control" placeholder="Status" value="" type="number">
+                                            <div class="form-group col-xs-2 col-lg-2">
+                                                <label class="control-label" for="status">Status</label>
+                                                <select name="status" id="status" class="form-control">
+                                                    <option value="Acesso">Acesso</option>
+                                                    <option value="Não Acesso">Não Acesso</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <!-- FIM LINHA -->

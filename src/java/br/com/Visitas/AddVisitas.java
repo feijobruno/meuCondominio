@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.Funcionarios;
+package br.com.Visitas;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,39 +15,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AddFuncionario extends HttpServlet {
+public class AddVisitas extends HttpServlet {
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
         String nome = request.getParameter("nome");
-        String funcao = request.getParameter("funcao");
-        String status = request.getParameter("status");
-        String dt_admicao = request.getParameter("dt_admicao");
+        String rg = request.getParameter("rg");
+        String tipoVisita = request.getParameter("tipo");
+        String unidade = request.getParameter("unidade");
+        String mes = request.getParameter("id_mes");
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_meucondominio", "root", "");
-            PreparedStatement ps = c.prepareStatement("INSERT INTO tb_funcionarios (nome, funcao, status, dt_admicao) "
-                    + "VALUES (?, ?, ?, ?)");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO tb_visitantes (nome, tipo_visita, rg, id_unidade, id_mes, dt_cadastro) "
+                    + "VALUES (?, ?, ?, ?, ?, NOW())");
             ps.setString(1, nome);
-            ps.setString(2, funcao);
-            ps.setString(3, status);
-            ps.setString(4, dt_admicao);
+            ps.setString(2, tipoVisita);
+            ps.setString(3, rg);
+            ps.setString(4, unidade);
+            ps.setString(5, mes);
             ps.executeUpdate();
-            response.sendRedirect("pages/funcionarios.jsp");
+            response.sendRedirect("pages/visitas.jsp");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("pages/funcionarios_cadastro.jsp");
+            response.sendRedirect("pages/visitas_cadastro.jsp");
         }
     }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

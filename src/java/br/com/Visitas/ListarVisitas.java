@@ -1,4 +1,4 @@
-package br.com.Unidades;
+package br.com.Visitas;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -6,26 +6,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ListarUnidades {
+public class ListarVisitas {
    public String status;
-   private ArrayList<Unidades> listUnidades;
+   private ArrayList<Visitas> listVisitas;
 
-    public ListarUnidades() {
+    public ListarVisitas() {
         this.status = "offline";
-        this.listUnidades = new ArrayList<Unidades>();
+        this.listVisitas = new ArrayList<Visitas>();
     }
 
-    public ListarUnidades(ArrayList<Unidades> listUsuario) {
+    public ListarVisitas(ArrayList<Visitas> listVisitas) {
         this.status = "offline";
-        this.listUnidades = listUnidades;
+        this.listVisitas = listVisitas;
     }
 
-    public ArrayList<Unidades> listUnidades() {
-        return listUnidades;
+    public ArrayList<Visitas> listVisitas() {
+        return listVisitas;
     }
 
-    public void setListUsuario(ArrayList<Unidades> listUnidades) {
-        this.listUnidades = listUnidades;
+    public void setListUsuario(ArrayList<Visitas> listVisitas) {
+        this.listVisitas = listVisitas;
     }
     
     public String getStatus() {
@@ -49,7 +49,7 @@ public class ListarUnidades {
             connection = DriverManager.getConnection(url, username, password);
             
             if (connection != null) {
-                getBanco(connection, listUnidades);
+                getBanco(connection, listVisitas);
             }
             return connection;
         } catch (ClassNotFoundException e) {
@@ -61,16 +61,15 @@ public class ListarUnidades {
         }
     }
     
-    private void getBanco(Connection conn, ArrayList<Unidades> listItems) throws SQLException {
-        String query  = "Select * from tb_unidades"; //Query do SQL
+    private void getBanco(Connection conn, ArrayList<Visitas> listItems) throws SQLException {
+        String query  = "Select * from tb_visitantes"; //Query do SQL
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         if (rs != null){
             while (rs.next()){
                 try {
-                    listUnidades.add(new Unidades(rs.getInt("id_unidade"), rs.getInt("status"),
-                            rs.getString("proprietario"), rs.getString("cpf"), rs.getString("telefone"), rs.getInt("id_morador"),
-                            rs.getInt("id_vaga"), rs.getString("casa")));
+                    listVisitas.add(new Visitas(rs.getInt("id"), rs.getString("tipo_visita"),
+                            rs.getString("nome"), rs.getString("rg"), rs.getInt("id_unidade"), rs.getString("dt_cadastro"), rs.getInt("id_mes")));
                 } catch (Exception e){
                     e.printStackTrace();
                 }
