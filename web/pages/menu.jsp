@@ -18,7 +18,10 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="../index.jsp"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <%HttpSession session2 = request.getSession(false);
+                    if(session2 != null)session2.invalidate();
+                    %>
                 </li>
             </ul>
             <!-- /.dropdown-user -->

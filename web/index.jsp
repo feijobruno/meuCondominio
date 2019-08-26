@@ -1,19 +1,15 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="false"%>
 <%@page import="br.com.ConexaoBanco.ConexaoMySQL"%>
 <!DOCTYPE html>
-
 <html lang="pt-br">
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" href="../includes/img/favicon.ico" type="image/x-icon" />
-
         <title>Meu Condomínio</title>
-
         <!-- Bootstrap Core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- MetisMenu CSS -->
@@ -150,8 +146,6 @@
                 </div> 
             </div> 
         </div> 
-        <?php } ?>
-
         <!-- jQuery -->
         <script src="vendor/jquery/jquery.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
