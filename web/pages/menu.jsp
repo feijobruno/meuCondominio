@@ -1,3 +1,10 @@
+<%! void redirect(HttpServletRequest request) {
+    HttpSession session2 = request.getSession(false);
+    if(session2 != null){
+        session2.invalidate();
+    }
+}
+%>
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
@@ -18,10 +25,7 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="../index.jsp"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                    <%HttpSession session2 = request.getSession(false);
-                    if(session2 != null)session2.invalidate();
-                    %>
+                <li><a href="../index.jsp" onclick="<%! void reredirect (HttpServletRequest request){redirect(request);} %>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
