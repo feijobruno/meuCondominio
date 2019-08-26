@@ -7,7 +7,7 @@ public class Moradores {
     private String cpf;
     private String rg;
     private String dtNascimento;
-    private String telefone;
+    private String telefone;    
     private int apartamento;
     private int status;
     private String tipoMorador;

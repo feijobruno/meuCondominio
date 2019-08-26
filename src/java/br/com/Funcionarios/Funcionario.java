@@ -1,16 +1,6 @@
 
 package br.com.Funcionarios;
 
-import br.com.Login.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.lang.System;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Funcionario {
     private int id;
     private int status;
