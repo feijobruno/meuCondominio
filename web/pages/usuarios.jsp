@@ -22,6 +22,10 @@
         <link href="../vendor/sb-admin/css/sb-admin-2.css" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- DataTables CSS -->
+        <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+        <link href="../vendor/datatables/css/dataTables.personalizado.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -103,6 +107,11 @@
             <script src="../vendor/metisMenu/metisMenu.min.js"></script>
             <!-- Custom Theme JavaScript -->
             <script src="../vendor/sb-admin/js/sb-admin-2.js"></script>
+            <!-- DataTables JavaScript -->
+            <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+            <script src="../vendor/datatables/js/personalizado.js"></script>
+            <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+            <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
     </body>
     <%} else {
     response.sendRedirect("../index.jsp");
