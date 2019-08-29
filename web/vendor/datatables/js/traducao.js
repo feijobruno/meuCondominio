@@ -1,6 +1,6 @@
 //Datatable Settings
 $(document).ready(function () {
-    $('#grid_ba_reg').DataTable({
+    $('#grid').DataTable({
         responsive: true,
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
