@@ -22,6 +22,10 @@
         <link href="../vendor/sb-admin/css/sb-admin-2.css" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- DataTables CSS -->
+        <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+        <link href="../vendor/datatables/css/dataTables.personalizado.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -52,7 +56,7 @@
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover table-condensed" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover display compact" id="grid">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
@@ -66,40 +70,28 @@
                                             <th>Status</th>
                                             <th>Tipo Morador</th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
                                         <%
                                             ListarMoradores database = new ListarMoradores();
                                             database.getConexaoMySQL();
                                             for (Moradores moradores : database.listMoradores()) {
                                         %>
                                         <tr>
-                                            <th><%=moradores.getId()%></th>
-                                            <th><%=moradores.getNome()%></th>
-                                            <th><%=moradores.getEmail()%></th>
-                                            <th><%=moradores.getCpf()%></th>
-                                            <th><%=moradores.getRg()%></th>
-                                            <th><%=moradores.getDtNascimento()%></th>
-                                            <th><%=moradores.getTelefone()%></th>
-                                            <th><%=moradores.getApartamento()%></th>
-                                            <th><%=moradores.getStatus()%></th>
-                                            <th><%=moradores.getTipoMorador()%></th>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getId()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getNome()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getEmail()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getCpf()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getRg()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getDtNascimento()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getTelefone()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getApartamento()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getStatus()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=moradores.getTipoMorador()%></a></td>
                                         </tr>
                                         <%
                                             }
                                         %>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>    
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>  
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>    
-                                            <td class="odd gradeX" align="center"><a href="moradores_cadastro.jsp"></a></td>  
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>     <!-- /.table-responsive -->
@@ -116,6 +108,10 @@
             <script src="../vendor/metisMenu/metisMenu.min.js"></script>
             <!-- Custom Theme JavaScript -->
             <script src="../vendor/sb-admin/js/sb-admin-2.js"></script>
+            <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+            <script src="../vendor/datatables/js/traducao.js"></script>
+            <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+            <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
     </body>
     <%} else {
     response.sendRedirect("../index.jsp");

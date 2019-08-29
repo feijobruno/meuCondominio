@@ -24,6 +24,10 @@
         <link href="../vendor/sb-admin/css/sb-admin-2.css" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- DataTables CSS -->
+        <link href="../vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="../vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+        <link href="../vendor/datatables/css/dataTables.personalizado.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -54,7 +58,7 @@
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover table-condensed" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover display compact" id="grid">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
@@ -65,34 +69,25 @@
                                             <th>Cor</th>
                                             <th>Apt.</th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
                                         <%
                                             ListarVeiculos database = new ListarVeiculos();
                                             database.getConexaoMySQL();
                                             for (Veiculos veiculos : database.getListVeiculos()) {
                                         %>
                                         <tr>
-                                            <th><%=veiculos.getId_veiculo()%></th>
-                                            <th><%=veiculos.getPlaca()%></th>
-                                            <th><%=veiculos.getMarca()%></th>
-                                            <th><%=veiculos.getModelo()%></th>
-                                            <th><%=veiculos.getAno()%></th>
-                                            <th><%=veiculos.getCor()%></th>
-                                            <th><%=veiculos.getId_apartamento()%></th>
+                                            <td class="odd gradeX" align="center"><a><%=veiculos.getId_veiculo()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=veiculos.getPlaca()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=veiculos.getMarca()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=veiculos.getModelo()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=veiculos.getAno()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=veiculos.getCor()%></a></td>
+                                            <td class="odd gradeX" align="center"><a><%=veiculos.getId_apartamento()%></a></td>
                                         </tr>
                                         <%
                                             }
                                         %>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="veiculos_cadastro.jsp"></a></td>    
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>     <!-- /.table-responsive -->
@@ -109,6 +104,10 @@
             <script src="../vendor/metisMenu/metisMenu.min.js"></script>
             <!-- Custom Theme JavaScript -->
             <script src="../dist/js/sb-admin-2.js"></script>
+            <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+            <script src="../vendor/datatables/js/traducao.js"></script>
+            <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+            <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
     </body>
     <%} else {
     response.sendRedirect("../index.jsp");

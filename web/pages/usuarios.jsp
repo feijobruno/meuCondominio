@@ -55,7 +55,7 @@
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-                                 <table width="100%" class="table table-striped table-bordered table-hover display compact" id="grid">
+                                <table width="100%" class="table table-striped table-bordered table-hover display compact" id="grid">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
@@ -65,32 +65,24 @@
                                             <th>Perfil</th>
                                             <th>Status</th>
                                         </tr>
-                                        <%
+                                    </thead>
+                                    <tbody>
+                                           <%
                                             ListarUsuario database = new ListarUsuario();
                                             database.getConexaoMySQL();
                                             for (Usuario usuario : database.getListUsuario()) {
                                         %>
                                         <tr>
-                                            <th><%=usuario.getId_usuario()%></th>
-                                            <th><%=usuario.getNome()%></th>
-                                            <th><%=usuario.getEmail()%></th>
-                                            <th><%=usuario.getId_unidade()%></th>
-                                            <th><%=usuario.getPerfil()%></th>
-                                            <th><%=usuario.getStatus()%></th>
+                                            <td class="odd gradeX" align="center"><a> <%=usuario.getId_usuario()%></a></td>
+                                            <td class="odd gradeX" align="center"><a> <%=usuario.getNome()%></a></td>
+                                            <td class="odd gradeX" align="center"><a> <%=usuario.getEmail()%></a></td>
+                                            <td class="odd gradeX" align="center"><a> <%=usuario.getId_unidade()%></a></td>
+                                            <td class="odd gradeX" align="center"><a> <%=usuario.getPerfil()%></a></td>
+                                            <td class="odd gradeX" align="center"><a> <%=usuario.getStatus()%></a></td>   
                                         </tr>
                                         <%
                                             }
-                                        %>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="odd gradeX" align="center"><a href="usuarios_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="usuarios_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="usuarios_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="usuarios_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="usuarios_cadastro.jsp"></a></td>
-                                            <td class="odd gradeX" align="center"><a href="usuarios_cadastro.jsp"></a></td>    
-                                        </tr>
+                                        %> 
                                     </tbody>
                                 </table>
                             </div>     <!-- /.table-responsive -->
@@ -109,7 +101,7 @@
             <script src="../vendor/sb-admin/js/sb-admin-2.js"></script>
             <!-- DataTables JavaScript -->
             <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-            <script src="../vendor/datatables/js/personalizado.js"></script>
+            <script src="../vendor/datatables/js/traducao.js"></script>
             <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
             <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
     </body>
